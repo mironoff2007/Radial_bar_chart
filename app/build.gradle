@@ -5,9 +5,10 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 31
     buildToolsVersion "30.0.3"
+
     compileOptions {
-        sourceCompatibility kotlin_version
-        targetCompatibility kotlin_version
+        sourceCompatibility "1.8"
+        targetCompatibility "1.8"
     }
     defaultConfig {
         applicationId "ru.mironov.radialbarchart"
@@ -24,6 +25,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    viewBinding {
+        enabled true
     }
 
 }
