@@ -5,7 +5,10 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 31
     buildToolsVersion "30.0.3"
-
+    compileOptions {
+        sourceCompatibility kotlin_version
+        targetCompatibility kotlin_version
+    }
     defaultConfig {
         applicationId "ru.mironov.radialbarchart"
         minSdkVersion 21
