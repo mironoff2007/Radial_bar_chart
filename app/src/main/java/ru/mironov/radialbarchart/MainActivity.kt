@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater).also { setContentView(it.root) }
 
-        customView=binding.customView
+        customView=binding.customViewBar
         bar=binding.seekBar
 
         bar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
