@@ -22,15 +22,15 @@ class RadialBar(
 
     //private lateinit var binding: CustomViewBinding
 
-    var radius=100
+    var radius=200
     val mX=radius*1F
     val mY=radius*1F
 
-    var sweepAngle=45F
+    private var value=0F
 
     var strokeWidth=15F
 
-    val maxValue=180F
+    private var maxValue=180F
 
     val angleStart=30F
 
@@ -48,8 +48,15 @@ class RadialBar(
         //binding = CustomViewBinding.inflate(layoutInflater).also { setContentView(it.root) }
     }
 
-    fun setAngle(sweepAngle:Float){
-        this.sweepAngle=sweepAngle
+    @JvmName("setValue1")
+    fun setValue(value:Float){
+        this.value=value
+        this.invalidate()
+    }
+
+
+    fun setMaxValue(maxValue:Float){
+        this.maxValue=maxValue
         this.invalidate()
     }
 
@@ -78,7 +85,7 @@ class RadialBar(
         val radiusArc=(radius-strokeWidth/2)
 
         val oval = RectF(mX - radiusArc, mY - radiusArc, mX + radiusArc, mY +radiusArc)
-        val angleArc=sweepAngle*(360-2*angleStart)/100
+        val angleArc=value*(360-2*angleStart)/100
         val angleEnd=360-angleStart-(angleStart+angleArc)
 
         canvas.drawArc(oval, -270F+angleStart, angleArc, false, paint)

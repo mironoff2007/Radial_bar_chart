@@ -50,6 +50,7 @@ class RadialBarLayout(
     lateinit var maxValueText:TextView
 
     lateinit var currentValueText:TextView
+
     init{
         //binding = CustomViewBinding.inflate(layoutInflater).also { setContentView(it.root) }
         val inflater=LayoutInflater.from(context)
@@ -57,12 +58,19 @@ class RadialBarLayout(
 
         barView=findViewById(R.id.radialBar)
         maxValueText=findViewById(R.id.maxValueText)
-        maxValueText.text ="из" +maxValue
+        currentValueText=findViewById(R.id.currentValueText)
+
     }
 
-    fun setAngle(sweepAngle:Float){
-        barView.sweepAngle=sweepAngle
-        barView.invalidate()
+    fun setValue(value:Float){
+        barView.setValue(value)
+        currentValueText.text= "%.0f".format((maxValue*value/100))
+    }
+
+    fun setMaxVal(maxValue:Float){
+        barView.setMaxValue(maxValue)
+        this.maxValue=maxValue
+        maxValueText.text ="из " +"%.0f".format(maxValue)
     }
 
 }
