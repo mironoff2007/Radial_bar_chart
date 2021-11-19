@@ -9,8 +9,8 @@ import ru.mironov.radialbarchart.databinding.ActivityMainBinding
 import android.widget.Toast
 
 import android.widget.SeekBar.OnSeekBarChangeListener
-
-
+import androidx.constraintlayout.widget.ConstraintLayout
+import ru.mironov.radialbarchart.databinding.RadialBarChartBinding
 
 
 class MainActivity : AppCompatActivity() {
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater).also { setContentView(it.root) }
 
-        customView=binding.customViewBar
+        customView=binding.customView
         bar=binding.seekBar
 
         bar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {

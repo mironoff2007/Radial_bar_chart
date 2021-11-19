@@ -3,7 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/msi_b150i/AndroidStudioProjects/RadialBarChart/app/src/main/res/layout/activity_main.xml" value="0.9" />
+        <entry key="..\:/Users/msi_b150i/AndroidStudioProjects/RadialBarChart/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/msi_b150i/AndroidStudioProjects/RadialBarChart/app/src/main/res/layout/radial_bar_chart.xml" value="0.2590909090909091" />
       </map>
     </option>
   </component>
@@ -12,6 +13,13 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.2590909090909091" />
+      </ProjectState>
+    </option>
   </component>
   <component name="masterDetails">
     <states>
