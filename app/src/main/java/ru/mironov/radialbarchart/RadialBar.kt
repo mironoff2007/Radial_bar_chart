@@ -10,17 +10,15 @@ import android.view.View
 import android.graphics.RectF
 
 import android.graphics.CornerPathEffect
-import android.view.LayoutInflater
-import androidx.constraintlayout.widget.ConstraintLayout
 import ru.mironov.radialbarchart.databinding.ActivityMainBinding
 
 
-class CustomView(
+class RadialBar(
     context: Context,
     attributesSet: AttributeSet?,
     defStyleAttr: Int,
     defStyleRes: Int
-) : ConstraintLayout(context, attributesSet, defStyleAttr, defStyleRes) {
+) : View(context, attributesSet, defStyleAttr, defStyleRes) {
 
     //private lateinit var binding: CustomViewBinding
 
@@ -28,7 +26,7 @@ class CustomView(
     val mX=radius*1F
     val mY=radius*1F
 
-    var sweepAngle=0F
+    var sweepAngle=45F
 
     var strokeWidth=15F
 
@@ -48,8 +46,6 @@ class CustomView(
 
     init{
         //binding = CustomViewBinding.inflate(layoutInflater).also { setContentView(it.root) }
-        val inflater=LayoutInflater.from(context)
-        inflater.inflate(R.layout.radial_bar_chart,this,true)
     }
 
     fun setAngle(sweepAngle:Float){

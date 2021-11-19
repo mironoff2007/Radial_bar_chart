@@ -2,22 +2,17 @@ package ru.mironov.radialbarchart
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.widget.SeekBar
 import ru.mironov.radialbarchart.databinding.ActivityMainBinding
-import android.widget.Toast
 
 import android.widget.SeekBar.OnSeekBarChangeListener
-import androidx.constraintlayout.widget.ConstraintLayout
-import ru.mironov.radialbarchart.databinding.RadialBarChartBinding
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private lateinit var customView:CustomView
+    private lateinit var radialBarLayout:RadialBarLayout
 
     private lateinit var bar:SeekBar
 
@@ -27,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater).also { setContentView(it.root) }
 
-        customView=binding.customView
+        radialBarLayout=binding.customView
         bar=binding.seekBar
 
         bar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
@@ -40,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-               customView.setAngle(progress*1F)
+               radialBarLayout.setAngle(progress*1F)
             }
         })
     }

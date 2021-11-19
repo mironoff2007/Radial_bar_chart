@@ -8,17 +8,44 @@
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout"
     >
 
-        <TextView
+        <ru.mironov.radialbarchart.RadialBar
+            android:id="@+id/radialBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="text"
-            android:textSize="15dp"
-            android:textColor="@color/black"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/customViewBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+        </ru.mironov.radialbarchart.RadialBar>
+
+        <TextView
+            android:id="@+id/maxValueText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/radialBarChart"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:text="Text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-
-
-
+        <TextView
+            android:id="@+id/currentValueText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/radialBarChart"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:text="Current value"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 </merge>
