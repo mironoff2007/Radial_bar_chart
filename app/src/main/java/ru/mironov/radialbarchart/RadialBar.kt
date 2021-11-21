@@ -23,8 +23,6 @@ class RadialBar(
     //private lateinit var binding: CustomViewBinding
 
     var radius=200
-    val mX=radius*1F
-    val mY=radius*1F
 
     private var value=0F
 
@@ -62,6 +60,9 @@ class RadialBar(
 
     @SuppressLint("DrawAllocation")
     override fun onDraw(canvas: Canvas) {
+        val mX=radius*1F
+        val mY=radius*1F
+
         val paint= Paint()
         paint.color = Color.parseColor("#FFA500")
 

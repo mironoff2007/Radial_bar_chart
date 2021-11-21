@@ -16,6 +16,15 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.radial_bar_chart.view.*
 import ru.mironov.radialbarchart.databinding.ActivityMainBinding
+import android.util.DisplayMetrics
+
+import android.content.res.TypedArray
+
+
+
+
+
+
 
 
 class RadialBarLayout(
@@ -26,6 +35,7 @@ class RadialBarLayout(
 ) : ConstraintLayout(context, attributesSet, defStyleAttr, defStyleRes) {
 
     //private lateinit var binding: CustomViewBinding
+    val dpi:Float
 
     var radius=100
     val mX=radius*1F
@@ -39,9 +49,9 @@ class RadialBarLayout(
 
     val angleStart=30F
 
-    constructor(context: Context, attributesSet: AttributeSet?, defStyleAttr: Int) : this(context, attributesSet, defStyleAttr, 0)
+    constructor(context: Context, attributesSet: AttributeSet?, defStyleAttr: Int) : this(context, attributesSet, defStyleAttr, 0){}
 
-    constructor(context: Context, attributesSet: AttributeSet?) : this(context, attributesSet, 0)
+    constructor(context: Context, attributesSet: AttributeSet?) : this(context, attributesSet, 0){}
 
     constructor(context: Context) : this(context, null)
 
@@ -56,10 +66,24 @@ class RadialBarLayout(
         val inflater=LayoutInflater.from(context)
         inflater.inflate(R.layout.radial_bar_chart,this,true)
 
+
+        val a = context.obtainStyledAttributes(attributesSet, R.styleable.RadialBarLayout, defStyleAttr, 0)
+
+        val str = a.getString(R.styleable.RadialBarLayout_android_radius)
+
+        radius= str?.filter { it.isDigit()|| it == '.' }?.toFloatOrNull()?.toInt() ?:radius
+
+        a.recycle()
+
         barView=findViewById(R.id.radialBar)
         maxValueText=findViewById(R.id.maxValueText)
         currentValueText=findViewById(R.id.currentValueText)
 
+
+
+        dpi = this.resources.displayMetrics.density
+        radius *= dpi.toInt()
+        barView.radius=radius
     }
 
     fun setValue(value:Float){
@@ -73,4 +97,5 @@ class RadialBarLayout(
         maxValueText.text ="из " +"%.0f".format(maxValue)
     }
 
+    //fun pdToPixel(){val px: Float = dp * (metrics.densityDpi / 160f)}
 }
