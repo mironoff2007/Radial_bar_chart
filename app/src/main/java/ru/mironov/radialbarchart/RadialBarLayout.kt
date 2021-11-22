@@ -19,12 +19,9 @@ import ru.mironov.radialbarchart.databinding.ActivityMainBinding
 import android.util.DisplayMetrics
 
 import android.content.res.TypedArray
-
-
-
-
-
-
+import kotlin.math.cos
+import kotlin.math.roundToInt
+import kotlin.math.sin
 
 
 class RadialBarLayout(
@@ -79,12 +76,19 @@ class RadialBarLayout(
         maxValueText=findViewById(R.id.maxValueText)
         currentValueText=findViewById(R.id.currentValueText)
 
-
-
         dpi = this.resources.displayMetrics.density
         radius *= dpi.toInt()
         barView.radius=radius
+
+        val layoutParams = maxValueText.layoutParams
+        val angle=Math.PI/180*barView.angleStart
+        layoutParams.width = (radius*sin(angle)*2).roundToInt()
+        maxValueText.textSize= layoutParams.width/maxValueText.text.length.toFloat()/2
+        layoutParams.height = (maxValueText.textSize*1.2).toInt()
+        maxValueText.layoutParams = layoutParams
     }
+
+
 
     fun setValue(value:Float){
         barView.setValue(value)

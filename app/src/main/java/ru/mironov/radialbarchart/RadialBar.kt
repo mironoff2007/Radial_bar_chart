@@ -11,6 +11,8 @@ import android.graphics.RectF
 
 import android.graphics.CornerPathEffect
 import ru.mironov.radialbarchart.databinding.ActivityMainBinding
+import kotlin.math.cos
+import kotlin.math.sin
 
 
 class RadialBar(
@@ -30,7 +32,7 @@ class RadialBar(
 
     private var maxValue=180F
 
-    val angleStart=30F
+    val angleStart=15F
 
     constructor(context: Context, attributesSet: AttributeSet?, defStyleAttr: Int) : this(context, attributesSet, defStyleAttr, 0)
 
@@ -39,7 +41,8 @@ class RadialBar(
     constructor(context: Context) : this(context, null)
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        setMeasuredDimension(radius*2,radius*2)
+        val angle=Math.PI/180*angleStart
+        setMeasuredDimension(radius*2, ((radius+radius*cos(angle)).toInt()))
     }
 
     init{
